@@ -1,4 +1,4 @@
-var sockett = io()
+var socket = io()
 let div = document.querySelector('.row>div')
 
 socket.on('connect', function() {

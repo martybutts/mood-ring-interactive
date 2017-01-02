@@ -1,10 +1,32 @@
 var express = require('express')
+var path = require('path')
+var PORT = process.env.PORT || 3000
+
 var app = express()
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
+var routes = require('./routes/index');
+
+// Working with namespaces
+app.get('/channel/:name', (req, res) => {
+  var channel = req.params.name
+
+  var nsp = io.of(`/${channel}`);
+
+  nsp.on('connection', function(socket){
+    console.log('someone connected')
+  });
+  nsp.emit('hi', 'everyone!');
 })
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+//server setup
+
+routes(io)
+
+http.listen(PORT, function () {
+  console.log('Server listening on port: ', PORT)
 })
+
+app.use(express.static('public'))
