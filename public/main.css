@@ -18,6 +18,14 @@ body {
   height: 50px;
 }
 
-.user-input {
-  padding:
+input {
+  border: 0;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 18px;
 }
+
+input[type="submit"] {
+      background: red;
+      color: white;
+    }
