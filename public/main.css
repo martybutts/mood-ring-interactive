@@ -19,13 +19,13 @@ body {
 }
 
 input {
-  border: 0;
+  border: 1;
   padding: 10px;
   margin-bottom: 10px;
   font-size: 18px;
 }
 
-input[type="submit"] {
-      background: red;
+input[type="button"] {
+      background: rgba(0, 0, 0, 0.5);
       color: white;
     }
