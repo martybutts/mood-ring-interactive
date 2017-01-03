@@ -19,6 +19,12 @@ var sentimentToBlue = function (score) {
   return  Math.round (255 - ((12.8 * score) + 127.8) )
 }
 
+document.getElementById("submit").addEventListener("click", getSubject);
+
+function getSubject() {
+  document.getElementById("subject")
+}
+
 var extractScore = function (event) {
   var tweet = event && event.text;
   var result = sentiment(tweet);
