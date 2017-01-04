@@ -3,6 +3,8 @@ var dotenv = require('dotenv')
 var Twitter = require('twitter')
 var sentiment = require('sentiment')
 
+modules.import =
+
 dotenv.load()
 
 var client = new Twitter({
