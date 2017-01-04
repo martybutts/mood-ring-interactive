@@ -1,12 +1,9 @@
 var express = require('express')
 var path = require('path')
 var PORT = process.env.PORT || 3000
-
 var app = express()
-
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-
 var routes = require('./routes/index');
 
 // Working with namespaces

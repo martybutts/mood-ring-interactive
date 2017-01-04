@@ -19,11 +19,7 @@ var sentimentToBlue = function (score) {
   return  Math.round (255 - ((12.8 * score) + 127.8) )
 }
 
-document.getElementById("submit").addEventListener("click", getSubject);
 
-function getSubject() {
-  document.getElementById("subject")
-}
 
 var extractScore = function (event) {
   var tweet = event && event.text;
@@ -37,7 +33,7 @@ console.log('')
 module.exports = function (io) {
 
   io.on('connection', function (socket) {
-    var stream = client.stream('statuses/filter', {language: 'en', track: 'trump'});
+    var stream = client.stream('statuses/filter', {language: 'en', track: getSubject});
 
     stream.on('data', function(event) {
       var score = extractScore(event)

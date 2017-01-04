@@ -1,4 +1,17 @@
 var socket = io()
+
+var subject = document.getElementById("subject")
+var submit = document.getElementById("submit")
+var getSubject = submit.addEventListener("click", function() {
+  if (subject.value !==null) {
+    return subject.value
+  }
+  else {
+    return false
+  }
+}, false)
+
+
 let div = document.querySelector('.row>div')
 
 socket.on('connect', function() {
